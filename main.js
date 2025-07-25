@@ -19,8 +19,7 @@ function getHumanChoice() {
   const response = prompt(input);
   
   if (response === null) {
-    alert("Game canceled.");
-    return null;
+    alert("Game canceled!");
   }
 
   return response.toLowerCase();
