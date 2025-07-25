@@ -1,4 +1,3 @@
-
 function getComputerChoice() {
 const result = Math.floor(Math.random() * 3);
   if (result === 0) {
@@ -20,9 +19,9 @@ function getHumanChoice() {
   
   if (response === null) {
     alert("Game canceled!");
-  }
-
-  return response.toLowerCase();
+  } else {
+    return response.toLowerCase();
+  }  
 }
 
 let humanScore = 0;
@@ -52,19 +51,8 @@ function playRound(humanChoice, computerChoice) {
   } else {
     console.log("Invalid input!");
   }
-  
+   console.log(`Score -> You: ${humanScore} | Computer: ${computerScore}`);
 }
-
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-
-console.log(`You chose: ${humanSelection}`);
-console.log(`Computer chose: ${computerSelection}`);
-
-playRound(humanSelection, computerSelection);
-
 
 function playGame() {
    humanScore = 0;
@@ -74,8 +62,11 @@ function playGame() {
      let humanSelection = getHumanChoice();       
      let computerSelection = getComputerChoice(); 
      playRound(humanSelection, computerSelection);
-     
-   } if (humanScore > computerScore) {
+   }
+  
+playRound(humanSelection, computerSelection);
+
+    if (humanScore > computerScore) {
      console.log('Victory!');
    } else if (computerScore > humanScore) {
      console.log('Computer won!');
@@ -85,6 +76,6 @@ function playGame() {
 }
 
 playGame();
-
+  
 console.log(`Your current score is: ${humanScore}`);
 console.log(`Computer current score is: ${computerScore}`);
