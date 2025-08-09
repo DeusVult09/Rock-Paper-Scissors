@@ -1,3 +1,13 @@
+
+document.addEventListener('DOMContentLoaded', () => {
+  let typed = new Typed('#typed', {
+    strings: ['Rock','Paper','Scissors','Shoot!'],
+    typeSpeed: 40,
+    backSpeed: 50,
+    loop: true
+  });
+});
+
 function getComputerChoice() {
 const result = Math.floor(Math.random() * 3);
   if (result === 0) {
@@ -12,7 +22,7 @@ const result = Math.floor(Math.random() * 3);
 getComputerChoice();
 
 
-const input = "Please, enter your choice: 'Rock', 'Paper' or 'Scissors'";
+//const input = "Please, enter your choice: 'Rock', 'Paper' or 'Scissors'";
 
 function getHumanChoice() {
   const response = prompt(input);

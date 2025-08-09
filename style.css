@@ -2,42 +2,112 @@
   width: 70%;
   margin: auto;
   text-align: center;
+  margin-top: 20px;
 }
 
-.dice {
-  text-align: center;
-  display: flex;
-  
-  gap: 30px;
-
+#typed {
+  font-family: 'Inconsolata', monospace; /* matches your font */
+  font-size: 5rem;                       /* make it bigger */
+  color: #0ECCA3;                       /* green color */
+  font-weight: 700;                     /* bold text */
+  border-right: 2px solid #4caf50;     /* cursor effect */
+  padding-right: 5px;                   /* space after the cursor */
+  white-space: nowrap;                  /* keep text on one line */
+  overflow: hidden;                     /* hide overflow */
 }
+
 
 body {
   background-color: #393E46;
 }
 
+.hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 180px;
+}
+
 h1 {
-  margin: 30px;
+  margin: 30px, 0px, 60px, 0px;
   font-family: 'Inconsolata', monospace;
-  text-shadow: 5px 0 #232931;
-  font-size: 2rem;
-  color: #4ECCA3;
+  font-size: 3rem;
+  color: #0d0d0d;
 }
 
 p {
   font-size: 2rem;
-  color: #4ECCA3;
-  font-family: 'Indie Flower', cursive;
+  color: #4ecca3;
+  font-family: 'Inconsolata', monospace;
 }
 
-img {
-  width: 80%;
+.human-logo {
+    display: inline-block;
+}
+ 
+.img1, .img2{
+  width: 50px;
+  border-radius: 50%;
+  background-color: #020d0a;
+  border: solid, #0d0d0d;
+}
+
+.human-score, .computer-score{
+    width: 110px;
+    height: 40px;
+    border: dashed, 1px, #4ecca3;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    background-color: #020d0a;
+    color: #f0ffff;
+    font-size: 34px;
+    font-family: 'Inconsolata', monospace;
+}
+
+.choice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 60px;
+}
+
+.options {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.img-placeholder {
+    width: 80px;
+    height: 60px;
+    border: solid 3px #4ecca3 ;
+    border-radius: 5px;
+    background-color: #f0ffff;
+    opacity: 0.56 ;
+    padding: 15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+#rock-img, #paper-img, #scissors-img {
+    width: 50px;
+
+}
+
+.selection-para {
+    font-family: 'Inconsolata', monospace;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #0ECCA3;
 }
 
 footer {
   margin-top: 5%;
   color: #EEEEEE;
   text-align: center;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Inconsolata', monospace;
 
 }
