@@ -6,14 +6,14 @@
 }
 
 #typed {
-  font-family: 'Inconsolata', monospace; /* matches your font */
-  font-size: 5rem;                       /* make it bigger */
-  color: #0ECCA3;                       /* green color */
-  font-weight: 700;                     /* bold text */
-  border-right: 2px solid #4caf50;     /* cursor effect */
-  padding-right: 5px;                   /* space after the cursor */
-  white-space: nowrap;                  /* keep text on one line */
-  overflow: hidden;                     /* hide overflow */
+  font-family: 'Inconsolata', monospace;
+  font-size: 5rem;                       
+  color: #0ECCA3;                      
+  font-weight: 700;                     
+  border-right: 2px solid #4caf50;    
+  padding-right: 5px;                  
+  white-space: nowrap;                  
+  overflow: hidden;                    
 }
 
 
