@@ -1,33 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock-Paper-Scissors</title>
-    <script src="./main.js" defer></script>
-    <link rel="stylesheet" href="style.css">
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-      <h1>Rock. Paper. Scissors</h1>
+      <span id="typed"></span>
+      <h1>Welcome to the Game!</h1>
 
-      <div class="dice">
-        <p>Player</p>
-        <img class="img1" src="" />
+      <div class="hero-container">
+        <div class="player">
+          <div class="human-logo">
+            <img
+              class="img1"
+              src="./img assets/hacker.png"
+              alt="image of a hacker"
+            />
+            <p>Player</p>
+          </div>
+          <div class="human-score">0</div>
+        </div>
+
+        <div class="computer">
+          <div class="computer-logo">
+            <img
+              class="img2"
+              src="./img assets/robot.png"
+              alt="computer logo"
+            />
+            <p>Computer</p>
+          </div>
+          <div class="computer-score">0</div>
+        </div>
       </div>
 
-      <div class="dice">
-        <p>Computer</p>
-        <img class="img2" src="" />
+      <div class="choice">
+        <div class="options">
+          <button class="img-placeholder" id="btn-1">
+            <img id="rock-img" src="./img assets/hand.png" alt="" />
+          </button>
+          <button class="img-placeholder" id="btn-2">
+            <img id="paper-img" src="./img assets/hand-paper.png" alt="" />
+          </button>
+          <button class="img-placeholder" id="btn-3">
+            <img id="scissors-img" src="./img assets/scissors.png" alt="" />
+          </button>
+        </div>
+        <div class="selection-para">Make Your Choice!</div>
       </div>
     </div>
 
+    <footer>
+      © Created by Zara. 2025
+      <div class="footer-img-placeholder">
+        <img id="github" src="./img assets/github.png" />
+      </div>
+    </footer>
 
-<footer></footer>
-    
-</body>
+    <div id="popup" class="popup hidden">
+      <span id="closeBtn" class="close">&times;</span>
+      <h2 id="popup-title"></h2>
+      <p id="popup-message"></p>
+      <button id="reset-btn" class="hidden">Reset Game</button>
+    </div>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="./main.js" defer></script>
+  </body>
 </html>
