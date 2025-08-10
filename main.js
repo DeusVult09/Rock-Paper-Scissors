@@ -5,87 +5,112 @@ document.addEventListener('DOMContentLoaded', () => {
     typeSpeed: 40,
     backSpeed: 50,
     loop: true
-  });
 });
-
-function getComputerChoice() {
-const result = Math.floor(Math.random() * 3);
-  if (result === 0) {
-    return "paper";
-  } else if (result === 1) {
-    return "rock";
-  } else {
-    return "scissors";
-  }
-}
-
-getComputerChoice();
-
-
-//const input = "Please, enter your choice: 'Rock', 'Paper' or 'Scissors'";
-
-function getHumanChoice() {
-  const response = prompt(input);
-  
-  if (response === null) {
-    alert("Game canceled!");
-  } else {
-    return response.toLowerCase();
-  }  
-}
 
 let humanScore = 0;
 let computerScore = 0;
+let roundCount = 0;
 
-function playRound(humanChoice, computerChoice) {
-  if (humanChoice === computerChoice) { 
-    console.log("It's a tie!");
- } else if (humanChoice === "rock" && computerChoice === "scissors") {
-    console.log(`You won! ${humanChoice} beats ${computerChoice}`);
-    humanScore++; 
- } else if (humanChoice === "scissors" && computerChoice === "paper") {
-    console.log(`You won! ${humanChoice} beat ${computerChoice}!`);
+
+const humanScoreEl = document.querySelector('.human-score');
+const computerScoreEl = document.querySelector('.computer-score');
+
+//elements in the popup window after the choice is made:
+
+const popup = document.getElementById('popup');
+const closeBtn = document.getElementById('closeBtn');
+const popupTitle = document.getElementById('popup-title');
+const popupMsg = document.getElementById('popup-message');
+const resetBtn = document.getElementById('reset-btn');
+
+function getComputerChoice() {
+  const result = Math.floor(Math.random() * 3);
+  return result === 0 ? 'paper' : result === 1 ? 'rock' : 'scissors';
+}
+
+function playRound(humanChoice) {
+  const computerChoice = getComputerChoice();
+  let resultText = "";
+  let resultColor = "";
+
+  if (humanChoice === computerChoice) {
+    resultText = "It's a tie!";
+    resultColor = "grey";
+  } else if (
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "scissors" && computerChoice === "paper") ||
+    (humanChoice === "paper" && computerChoice === "rock")
+  ) {
+    resultText = "You won!";
+    resultColor = "green";
     humanScore++;
- }  else if (humanChoice === "paper" && computerChoice === "rock") {
-    console.log(`You won! ${humanChoice} beats ${computerChoice}!`);
-    humanScore++;
- }  else if (computerChoice === "rock" && humanChoice === "scissors") {
-    console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
-    computerScore++;
- }  else if (computerChoice === "scissors" && humanChoice === "paper") {
-    console.log(`You lose! ${computerChoice} beat ${humanChoice}!`); 
-    computerScore++;
- }  else if (computerChoice === "paper" && humanChoice === "rock") {
-    console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
-    computerScore++;
   } else {
-    console.log("Invalid input!");
+    resultText = "You lose!";
+    resultColor = "red";
+    computerScore++;
   }
-   console.log(`Score -> You: ${humanScore} | Computer: ${computerScore}`);
+
+  roundCount++;
+
+
+  humanScoreEl.textContent = humanScore;
+  computerScoreEl.textContent = computerScore;
+
+  popupTitle.style.color = resultColor;
+  popupTitle.style.fontFamily = "'Inconsolata', monospace";
+  popupTitle.style.fontSize = "3rem";
+
+  popupTitle.textContent = resultText;
+  popupMsg.innerHTML = `Computer chose <strong>${computerChoice}</strong>.`;
+  popup.classList.remove('hidden');
+
+  if (roundCount === 5) {
+    showFinalResult ();
+    resetBtn.classList.remove("hidden");
+  }
+
 }
 
-function playGame() {
-   humanScore = 0;
-   computerScore = 0;
+function showFinalResult() {
+  let finalText = "";
+  let finalColor = "";
   
-   for (let i = 0; i < 5; i++) {
-     let humanSelection = getHumanChoice();       
-     let computerSelection = getComputerChoice(); 
-     playRound(humanSelection, computerSelection);
-   }
-  
-playRound(humanSelection, computerSelection);
+  if (humanScore > computerScore) {
+    finalText = "Victory!";
+    finalColor = "green";
+  } else if (computerScore > humanScore) {
+    finalText = "Computer won the game!";
+    finalColor = "red";
+  } else {
+    finalText = "It's a draw!"
+    finalColor = "grey";
+  }
 
-    if (humanScore > computerScore) {
-     console.log('Victory!');
-   } else if (computerScore > humanScore) {
-     console.log('Computer won!');
-   } else {
-     console.log("It's a draw!")
-   }
+  popupTitle.textContent = finalText;
+  popupTitle.style.color = finalColor; 
+  popupMsg.textContent = `Player: ${humanScore} | Computer: ${computerScore}`;
 }
 
-playGame();
-  
-console.log(`Your current score is: ${humanScore}`);
-console.log(`Computer current score is: ${computerScore}`);
+function resetGame() {
+  humanScore = 0;
+  computerScore = 0;
+  roundCount = 0;
+  humanScoreEl.textContent = humanScore;
+  computerScoreEl.textContent = computerScore;
+  popup.classList.add("hidden");
+  resetBtn.classList.add("hidden");
+}
+
+
+document.getElementById('btn-1').addEventListener ('click', () => playRound('rock'));
+document.getElementById('btn-2').addEventListener ('click', () => playRound('paper'));
+document.getElementById('btn-3').addEventListener ('click', () => playRound('scissors'));
+
+closeBtn.addEventListener('click', () => popup.classList.add('hidden'));
+resetBtn.addEventListener('click', resetGame);
+
+});
+
+
+
+
