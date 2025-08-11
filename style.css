@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&display=swap');
+
 .container {
   width: 70%;
   margin: auto;
@@ -173,4 +176,13 @@ footer {
 
 #reset-btn:hover {
   background-color: #0ECCA3;
+}
+
+@media screen and (max-width: 800px) {
+  .hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+  }
 }
