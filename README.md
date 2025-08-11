@@ -14,7 +14,7 @@ Rock-Paper-Scissors/
 |
 |- README.md
 
-## The goal of the project was to build an interactive Rock-Paper-Scissors game playable in the browser. The player competes against the computer, with score tracking, a popup for results, and a reset feature after 5 rounds. The project also focuses on creating a clean and responsive user interface.
+## The goal of the project was to build an interactive Rock-Paper-Scissors game playable in the browser. The player competes against the computer with score tracking, a popup for results and a reset feature after 5 rounds. The project also focuses on creating a clean and responsive user interface.
 
 ## Skills Demonstrated
 
