@@ -70,7 +70,6 @@ function playRound(humanChoice) {
     btn1.disabled = true;
     btn2.disabled = true;
     btn3.disabled = true;
-
   }
 
 }
@@ -103,6 +102,9 @@ function resetGame() {
   computerScoreEl.textContent = computerScore;
   popup.classList.add("hidden");
   resetBtn.classList.add("hidden");
+  btn1.disabled = false;
+  btn2.disabled = false;
+  btn3.disabled = false;
 }
 
 
