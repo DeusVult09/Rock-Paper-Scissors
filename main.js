@@ -67,6 +67,10 @@ function playRound(humanChoice) {
   if (roundCount === 5) {
     showFinalResult ();
     resetBtn.classList.remove("hidden");
+    btn1.disabled = true;
+    btn2.disabled = true;
+    btn3.disabled = true;
+
   }
 
 }
@@ -102,9 +106,12 @@ function resetGame() {
 }
 
 
-document.getElementById('btn-1').addEventListener ('click', () => playRound('rock'));
-document.getElementById('btn-2').addEventListener ('click', () => playRound('paper'));
-document.getElementById('btn-3').addEventListener ('click', () => playRound('scissors'));
+const btn1 = document.getElementById('btn-1');
+btn1.addEventListener ('click', () => playRound('rock'));
+const btn2 = document.getElementById('btn-2');
+btn2.addEventListener ('click', () => playRound('paper'));
+const btn3 = document.getElementById('btn-3')
+btn3.addEventListener ('click', () => playRound('scissors'));
 
 closeBtn.addEventListener('click', () => popup.classList.add('hidden'));
 resetBtn.addEventListener('click', resetGame);
